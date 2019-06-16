@@ -4,8 +4,8 @@ import re
 import sys
 from chump import Application
 
-myToken = 'aacbdwqqnw1ck1dprtwmhyn9xf75j8'
-myUser = 'u5fiaqin56on6nbmkrckqehbxxwj3u'
+myToken = 'MYTOKEN'
+myUser = 'MYUSER'
 inBody = False
 Body =""
 
