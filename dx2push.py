@@ -11,7 +11,7 @@ Body =""
 # Read in the app token & user key
 
 config = configparser.ConfigParser()
-config.read('dx2push.ini')
+config.read('/usr/local/etc/dx2push.ini')
 myToken = config['keys']['token']
 myUser = config['keys']['user']
 
