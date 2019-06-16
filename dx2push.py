@@ -15,16 +15,17 @@ config.read('/usr/local/etc/dx2push.ini')
 myToken = config['keys']['token']
 myUser = config['keys']['user']
 
-for line in sys.stdin: #fileinput.input():
-    if re.match('^\\s*$',line):
-        inBody = True
+for line in sys.stdin:
     if inBody:
-        Body=Body+line
+        if re.match('^\\s*You receive',line):
+            break
+        else:
+            Body=Body+line
     elif re.match('^Subject:',line ):
         Subject=line
-    elif re.match('^\\s*You receive',line):
-        break
-
+    elif re.match('^\\s*$',line):
+        inBody = True
+   
 app = Application(myToken)
 #TODO app.is_authenticated should be True
 
