@@ -2,12 +2,18 @@
 
 import re
 import sys
+import configparser
 from chump import Application
 
-myToken = 'MYTOKEN'
-myUser = 'MYUSER'
 inBody = False
 Body =""
+
+# Read in the app token & user key
+
+config = configparser.ConfigParser()
+config.read('dx2push.ini')
+myToken = config['keys']['token']
+myUser = config['keys']['user']
 
 for line in sys.stdin: #fileinput.input():
     if re.match('^\\s*$',line):
