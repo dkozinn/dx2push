@@ -6,7 +6,8 @@ import configparser
 from chump import Application
 
 inBody = False
-Body =""
+Body = ""
+Subject = ""
 
 # Read in the app token & user key
 
@@ -28,17 +29,21 @@ for line in sys.stdin:
 
 # Make sure we got at least a subject or a body
 if (not inBody and not Subject):
-    exit
+    exit("Empty email message")
    
 app = Application(myToken)
-#TODO app.is_authenticated should be True
+if not app.is_authenticated:
+    exit("Unable to authenticate pushover application")
 
 user = app.get_user(myUser)
-#TODO make aure user.is_authenticated = True
+if not user.is_authenticated:
+    exit("Unable to authenticate pushover user")
 
 message = user.create_message( 
     title=Subject, 
-    message=Body 
+    message=Body,
+    sound="cosmic"
     )
 
-message.send()
+if not message.send():
+    exit("Error sending message")
