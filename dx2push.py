@@ -25,6 +25,10 @@ for line in sys.stdin:
         Subject=line
     elif re.match('^\\s*$',line):
         inBody = True
+
+# Make sure we got at least a subject or a body
+if (not inBody and not Subject):
+    exit
    
 app = Application(myToken)
 #TODO app.is_authenticated should be True
