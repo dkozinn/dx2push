@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/local/share/python/pyenv/shims/python3
 
 import re
 import sys
