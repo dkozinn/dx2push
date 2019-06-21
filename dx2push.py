@@ -11,10 +11,14 @@ Subject = ""
 
 # Read in the app token & user key
 
-config = configparser.ConfigParser()
-config.read('/usr/local/etc/dx2push.ini')
-myToken = config['keys']['token']
-myUser = config['keys']['user']
+try:
+
+    config = configparser.ConfigParser()
+    config.read('/usr/local/etc/dx2push.ini')
+    myToken = config['keys']['token']
+    myUser = config['keys']['user']
+except KeyError as e:
+    exit("Unable to parse config file")
 
 for line in sys.stdin:
     if inBody:
