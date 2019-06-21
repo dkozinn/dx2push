@@ -12,7 +12,6 @@ Subject = ""
 # Read in the app token & user key
 
 try:
-
     config = configparser.ConfigParser()
     config.read('/usr/local/etc/dx2push.ini')
     myToken = config['keys']['token']
