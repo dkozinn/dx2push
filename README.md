@@ -21,3 +21,9 @@ from chump import Application
 ```
 ## Configuration
 Edit dx2push.ini to add your app and user credentials, then copy it to /usr/local/etc (or a similar directory; you'll need to update the code.)
+
+## Test
+Feed an existing email in by running 
+```bash
+/path/to/dx2push.py < sample
+```
