@@ -19,6 +19,10 @@ try:
 except KeyError as e:
     exit("Unable to parse config file")
 
+# This assumes the the interesting stuff is all before the line that starts with the string in the 
+# first re.match() test. Obviously this can break.
+# TODO Find a better way to do this
+
 for line in sys.stdin:
     if inBody:
         if re.match('^\\s*You receive',line):
